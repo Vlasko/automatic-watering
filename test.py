@@ -1,9 +1,14 @@
-from time import sleep
+# Standard Library Imports
+
+# Third Party Imports
 import busio
 import digitalio
 import board
 import adafruit_mcp3xxx.mcp3008 as MCP
 from adafruit_mcp3xxx.analog_in import AnalogIn
+
+# Local Application Imports
+from functions.writing_functions import write_data
 
 # create the spi bus
 spi = busio.SPI(clock=board.SCK, MISO=board.MISO, MOSI=board.MOSI)
@@ -15,21 +20,15 @@ cs = digitalio.DigitalInOut(board.D5)
 mcp = MCP.MCP3008(spi, cs)
 
 # create an analog input channel on pin 0
-chan1 = AnalogIn(mcp, MCP.P0)
-
-#Output signal 0-4.2 V
+moistureSensor = AnalogIn(mcp, MCP.P0)
+# output signal 0-4.2 V
 # 0 ~300    : dry soil :      0~1.33 V
 # 300~700   : humid soil :    1.33~3.09 V
 # 700~950   : in water :      3.09~4.20 V
+write_data('moisture', moistureSensor.voltage, moistureSensor.value)
 
-chan2 = AnalogIn(mcp, MCP.P1)
+# create an analog input channel on pin 1
+liquidlevelSensor = AnalogIn(mcp, MCP.P1)
+write_data('liquidlevel', liquidlevelSensor.voltage, liquidlevelSensor.value)
 
-while(1):
-    print('Moisture Sensor')
-    print('Raw ADC Value: ', chan1.value)
-    print('ADC Voltage: ' + str(chan1.voltage) + 'V \n')
-    sleep(1)
-#    print('Liquid Level')
-#    print('Raw ADC Value: ', chan2.value)
-#    print('ADC Voltage: ' + str(chan2.voltage) + 'V \n')
-#    sleep(1)
+write_data('liquidlevel',1,2)
