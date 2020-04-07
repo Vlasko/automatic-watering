@@ -1,8 +1,8 @@
 # Standard Library Imports
 import os
+from datetime import datetime
 
 # Third Party Imports
-from datetime import datetime
 
 directory = os.getcwd()
 #newDir = os.getcwd()+'/files/'
