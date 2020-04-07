@@ -1,5 +1,2 @@
-busio
-digitalio
-board
-adafruit_mcp3xxx.mcp3008
-adafruit_mcp3xxx.analog_in
+adafruit-circuitpython-mcp3xxx
+adafruit-blinka
