@@ -10,12 +10,12 @@ directory = os.getcwd()
 def make_dir(newDir):
     try:
         # Create target Directory
-        os.mkdir(os.getcwd()+'/files/'+newDir)
+        os.mkdir(os.getcwd()+newDir)
     except FileExistsError:
         pass
 
 def write_data(type, col1, col2):
-    make_dir(type)
+    make_dir('/files/'+type)
     today = datetime.today().date()
 
     file_path = directory+'/files/'+type+'/'+str(today)+'_'+type+'.csv'

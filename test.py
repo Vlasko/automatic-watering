@@ -8,7 +8,9 @@ import adafruit_mcp3xxx.mcp3008 as MCP
 from adafruit_mcp3xxx.analog_in import AnalogIn
 
 # Local Application Imports
-from functions.writing_functions import write_data
+from functions.writing_functions import make_dir, write_data
+
+make_dir('files')
 
 # create the spi bus
 spi = busio.SPI(clock=board.SCK, MISO=board.MISO, MOSI=board.MOSI)
