@@ -22,21 +22,26 @@ cs = digitalio.DigitalInOut(board.D5)
 # create the mcp object
 mcp = MCP.MCP3008(spi, cs)
 
-def action():
-    # create an analog input channel on pin 0
-    moistureSensor = AnalogIn(mcp, MCP.P0)
+def read_sensor(sensor, name):
+    print(name, sensor.voltage)
     # output signal 0-4.2 V
     # 0 ~300    : dry soil :      0~1.33 V
     # 300~700   : humid soil :    1.33~3.09 V
     # 700~950   : in water :      3.09~4.20 V
-    print('moisture', moistureSensor.voltage)
-    write_data('moisture', moistureSensor.voltage, moistureSensor.value)
 
+def write_sensor(sensor, name):
+    write_data(name, sensor.voltage, sensor.value)
+    
+def action():
+    # create an analog input channel on pin 0
+    moistureSensor = AnalogIn(mcp, MCP.P0)
+    read_sensor(moistureSensor,'moisture')
+    write_sensor(moistureSensor,'moisture')
     # create an analog input channel on pin 1
     liquidlevelSensor = AnalogIn(mcp, MCP.P1)
-    write_data('liquidlevel', liquidlevelSensor.voltage, liquidlevelSensor.value)
+    read_sensor(liquidlevelSensor,'liquidlevel')
+    write_sensor(liquidlevelSensor,'liquidlevel')
 
 while(1):
     action()
     sleep(1800)
-
