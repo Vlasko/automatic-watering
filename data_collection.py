@@ -14,7 +14,7 @@ from functions.writing_functions import make_dir, write_data
 
 # Setup
 GPIO.setwarnings(False)
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
 make_dir('files')
 
 # Define functions
