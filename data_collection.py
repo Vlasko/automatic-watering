@@ -11,7 +11,6 @@ from adafruit_mcp3xxx.analog_in import AnalogIn
 from functions.writing_functions import make_dir, read_sensor, write_sensor
 
 # Setup
-make_dir('files')
 
 # create the spi bus
 spi = busio.SPI(clock=board.SCK, MISO=board.MISO, MOSI=board.MOSI)
