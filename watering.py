@@ -5,6 +5,6 @@ from datetime import datetime
 # Local Application Imports
 from functions.relay_control import switch
 
-switch(5,14)
+switch(3,14)
 
 print('Plant watered at',datetime.now())
