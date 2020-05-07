@@ -9,7 +9,7 @@ import adafruit_mcp3xxx.mcp3008 as MCP
 from adafruit_mcp3xxx.analog_in import AnalogIn
 
 # Local Application Imports
-from functions.writing_functions import make_dir, read_sensor, write_sensor
+from functions.writing_functions import read_sensor, write_sensor
 
 # Setup
 
