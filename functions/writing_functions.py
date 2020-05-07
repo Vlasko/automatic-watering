@@ -29,7 +29,6 @@ def write_data(type, col1, col2):
                         col1, col2))
 
 def read_sensor(sensor, name):
-    print(name)
 
     return sensor.voltage
     # output signal 0-4.2 V
