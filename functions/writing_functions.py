@@ -29,7 +29,9 @@ def write_data(type, col1, col2):
                         col1, col2))
 
 def read_sensor(sensor, name):
-    print(name, sensor.voltage)
+    print(name)
+
+    return sensor.voltage
     # output signal 0-4.2 V
     # 0 ~300    : dry soil :      0~1.33 V
     # 300~700   : humid soil :    1.33~3.09 V
