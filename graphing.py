@@ -31,6 +31,7 @@ plt.vlines(pd.Timestamp('2020-05-02T12:45', tz='UTC'), 1.33, 3.09)
 plt.vlines(pd.Timestamp('2020-05-03T12:45', tz='UTC'), 1.33, 3.09)
 plt.vlines(pd.Timestamp('2020-05-04T12:45', tz='UTC'), 1.33, 3.09)
 plt.vlines(pd.Timestamp('2020-05-05T12:45', tz='UTC'), 1.33, 3.09)
+plt.vlines(pd.Timestamp('2020-05-06T12:45', tz='UTC'), 1.33, 3.09)
 plt.show()
 
 # output signal 0-4.2 V
