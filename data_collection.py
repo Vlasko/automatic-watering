@@ -1,5 +1,6 @@
 # Standard Library Imports
 from datetime import datetime
+
 # Third Party Imports
 import busio
 import digitalio
@@ -24,11 +25,15 @@ mcp = MCP.MCP3008(spi, cs)
 def action():
     # create an analog input channel on pin 0
     moistureSensor= AnalogIn(mcp, MCP.P0)
-    #read_sensor(moistureSensor,'moisture')
+    read_sensor(moistureSensor,'moisture')
     write_sensor(moistureSensor,'moisture')
     # create an analog input channel on pin 1
     liquidlevelSensor = AnalogIn(mcp, MCP.P1)
-    #read_sensor(liquidlevelSensor,'liquidlevel')
+    read_sensor(liquidlevelSensor,'liquidlevel')
     write_sensor(liquidlevelSensor,'liquidlevel')
 
-action()
+if read_sensor > 1.90:
+    action()
+    print('Data collected at'+str(datetime.now()))
+else:
+    pass
