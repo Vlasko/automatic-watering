@@ -20,18 +20,20 @@ def importData(path):
 
 data = importData(path)
 
+log_data = open('/Users/gianluca/Documents/Projects/automatic-watering/log_files/watering_cron.log', 'r')
+
+water_marks=[]
+for line in log_data:
+    columns = line.split(' at ')
+    water_marks.append(columns[1][:16])
+
 crop= data['2020-04-28 09:10':]
 
 plt.plot(crop.index, crop.iloc[:,0])
 plt.hlines(1.33, crop.index[0], crop.index[-1], label='dry/humid')
 plt.hlines(3.09, crop.index[0], crop.index[-1], label='humid/wet')
-plt.vlines(pd.Timestamp('2020-04-30T12:45', tz='UTC'), 1.33, 3.09)
-plt.vlines(pd.Timestamp('2020-05-01T12:45', tz='UTC'), 1.33, 3.09)
-plt.vlines(pd.Timestamp('2020-05-02T12:45', tz='UTC'), 1.33, 3.09)
-plt.vlines(pd.Timestamp('2020-05-03T12:45', tz='UTC'), 1.33, 3.09)
-plt.vlines(pd.Timestamp('2020-05-04T12:45', tz='UTC'), 1.33, 3.09)
-plt.vlines(pd.Timestamp('2020-05-05T12:45', tz='UTC'), 1.33, 3.09)
-plt.vlines(pd.Timestamp('2020-05-06T12:45', tz='UTC'), 1.33, 3.09)
+for mark in water_marks:
+    plt.vlines(pd.Timestamp(mark, tz='UTC'), 1.33, 3.09)
 plt.show()
 
 # output signal 0-4.2 V
