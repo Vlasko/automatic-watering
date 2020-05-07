@@ -32,5 +32,13 @@ def action():
     read_sensor(liquidlevelSensor,'liquidlevel')
     write_sensor(liquidlevelSensor,'liquidlevel')
 
+<<<<<<< HEAD
     action()
     print('Data collected at'+str(datetime.now()))
+=======
+if read_sensor > 1.90:
+    action()
+    print('Data collected at'+str(datetime.now()))
+else:
+    pass
+>>>>>>> 27af9f5059db53992c8ceb9b06b4272138c4883d
