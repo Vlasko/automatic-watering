@@ -20,7 +20,7 @@ cs = digitalio.DigitalInOut(board.D5)
 mcp = MCP.MCP3008(spi, cs)
 moistureSensor= AnalogIn(mcp, MCP.P0)
 
-if read_sensor(moistureSensor,'moisture') > 1.90:
+if read_sensor(moistureSensor,'moisture') < 1.90:
     switch(3,14)
     print('Plant watered at',datetime.now())
 else:

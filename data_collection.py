@@ -32,5 +32,5 @@ def action():
     read_sensor(liquidlevelSensor,'liquidlevel')
     write_sensor(liquidlevelSensor,'liquidlevel')
 
-    action()
-    print('Data collected at'+str(datetime.now()))
+action()
+print('Data collected at '+str(datetime.now()))
