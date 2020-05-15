@@ -1,2 +1,4 @@
 #files
 #*.csv
+functions/__pycache__/writing_functions.cpython-37.pyc
+functions/__pycache__/relay_control.cpython-37.pyc
