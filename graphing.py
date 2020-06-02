@@ -31,6 +31,7 @@ crop= data['2020-04-28 09:10':]
 
 plt.plot(crop.index, crop.iloc[:,0])
 plt.hlines(1.33, crop.index[0], crop.index[-1], label='dry/humid')
+plt.hlines(1.90, crop.index[0], crop.index[-1], label='watering line', colors='g')
 plt.hlines(3.09, crop.index[0], crop.index[-1], label='humid/wet')
 for mark in water_marks:
     plt.vlines(pd.Timestamp(mark, tz='UTC'), 1.33, 3.09)
